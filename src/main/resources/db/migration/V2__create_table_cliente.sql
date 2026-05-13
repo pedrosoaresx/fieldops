@@ -1,0 +1,23 @@
+CREATE TABLE cliente (
+    id BINARY(16) PRIMARY KEY,
+    tenant_id BINARY(16) NOT NULL,
+    nome_fantasia VARCHAR(255),
+    razao_social VARCHAR(255),
+    tipo_documento VARCHAR(10),
+    documento VARCHAR(20),
+    inscricao_estadual VARCHAR(50),
+    email VARCHAR(255),
+    telefone VARCHAR(20),
+    nome_contato VARCHAR(100),
+    ativo BOOLEAN DEFAULT TRUE,
+    cep VARCHAR(10),
+    estado VARCHAR(50),
+    cidade VARCHAR(100),
+    bairro VARCHAR(100),
+    rua VARCHAR(150),
+    numero VARCHAR(10),
+    complemento VARCHAR(20),
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (tenant_id) REFERENCES tenant(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
